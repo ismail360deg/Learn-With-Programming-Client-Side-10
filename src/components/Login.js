@@ -1,6 +1,32 @@
-import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../contexts/AuthProvider/AuthProvider"
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext)
+    const navigate = useNavigate();
+
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate('/blog')
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
+
     return (
         <div className='flex justify-center items-center pt-8'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -10,7 +36,7 @@ const Login = () => {
                         Sign in to access your account
                     </p>
                 </div>
-                <form
+                <form onSubmit={handleSubmit}
                     noValidate=''
                     action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'

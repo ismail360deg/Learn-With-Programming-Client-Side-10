@@ -6,7 +6,7 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider'
 
 const Register = () => {
 
-    const { providerLogin } = useContext(AuthContext)
+    const { providerLogin, createUser } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -21,9 +21,25 @@ const Register = () => {
 
 
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoURL, email, password);
 
-
-
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+            })
+            .catch(e => {
+                console.error(e);
+            });
+    }
 
 
 
@@ -35,7 +51,7 @@ const Register = () => {
                     <h1 className='my-3 text-4xl font-bold'>Register</h1>
                     <p className='text-sm text-gray-400'>Create a new account</p>
                 </div>
-                <form
+                <form onSubmit={handleSubmit}
                     noValidate=''
                     action=''
                     className='space-y-12 ng-untouched ng-pristine ng-valid'
@@ -54,6 +70,21 @@ const Register = () => {
                                 data-temp-mail-org='0'
                             />
                         </div>
+
+                        <div>
+                            <label htmlFor='email' className='block mb-2 text-sm'>
+                                Photo URL
+                            </label>
+                            <input
+                                type='text'
+                                name='photoURL'
+                                id='name'
+                                placeholder='Enter Your photoURL Here'
+                                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                                data-temp-mail-org='0'
+                            />
+                        </div>
+
                         <div>
                             <label htmlFor='email' className='block mb-2 text-sm'>
                                 Email address
