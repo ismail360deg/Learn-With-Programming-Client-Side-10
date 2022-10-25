@@ -3,6 +3,7 @@ import Blog from "../components/Blog";
 import ErrorPage from "../components/ErrorPage";
 import Home from "../components/Home";
 import Login from "../components/Login";
+import Profile from "../components/Profile";
 import Register from "../components/Register";
 import Main from "../layout/Main";
 
@@ -31,7 +32,13 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
             }
         ]
     }
 ])
+
+export default router

@@ -42,6 +42,7 @@ const Login = () => {
                                 placeholder='*******'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
                             />
+                            <h1 className="text-red-500 px-3  ">didnot match</h1>
                         </div>
                     </div>
 

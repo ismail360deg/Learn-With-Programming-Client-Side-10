@@ -1,13 +1,6 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css';
-import Blog from './components/Blog';
-import ErrorPage from './components/ErrorPage';
-import Home from './components/Home';
-import Login from './components/Login';
-import Register from './components/Register';
-import Main from './layout/Main';
-
-
+import React from 'react'
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/Routes';
 
 
 function App() {

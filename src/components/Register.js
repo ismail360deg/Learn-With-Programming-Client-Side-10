@@ -1,7 +1,33 @@
+import { GoogleAuthProvider } from 'firebase/auth'
 import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../contexts/AuthProvider/AuthProvider'
 
 const Register = () => {
+
+    const { providerLogin } = useContext(AuthContext)
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+
+
+
+
+
+
+
+
+
     return (
         <div className='flex justify-center items-center pt-8'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
@@ -17,13 +43,13 @@ const Register = () => {
                     <div className='space-y-4'>
                         <div>
                             <label htmlFor='email' className='block mb-2 text-sm'>
-                                Name
+                                Full Name
                             </label>
                             <input
                                 type='text'
                                 name='name'
                                 id='name'
-                                placeholder='Enter Your Name Here'
+                                placeholder='Enter Your Full Name Here'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                                 data-temp-mail-org='0'
                             />
@@ -75,7 +101,7 @@ const Register = () => {
                     <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
                 </div>
                 <div className='flex justify-center space-x-4'>
-                    <button aria-label='Log in with Google' className='p-3 rounded-sm'>
+                    <button onClick={handleGoogleSignIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             viewBox='0 0 32 32'
@@ -105,7 +131,7 @@ const Register = () => {
                 </div>
                 <p className='px-6 text-sm text-center text-gray-400'>
                     Already have an account yet?{' '}
-                    <Link href='#' className='hover:underline text-gray-600'>
+                    <Link to='/login' className='hover:underline text-gray-600'>
                         Sign In
                     </Link>
                     .
