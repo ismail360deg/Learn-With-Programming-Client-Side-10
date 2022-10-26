@@ -1,11 +1,11 @@
 import { GoogleAuthProvider } from 'firebase/auth'
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider'
 
 const Register = () => {
-
+    const [error, setError] = useState('')
     const { providerLogin, createUser } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider()
@@ -18,8 +18,6 @@ const Register = () => {
             })
             .catch(error => console.error(error))
     }
-
-
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -34,15 +32,14 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('')
                 form.reset();
             })
-            .catch(e => {
-                console.error(e);
+            .catch(error => {
+                console.error(error);
+                setError(error.message)
             });
     }
-
-
-
 
     return (
         <div className='flex justify-center items-center pt-8'>
@@ -113,6 +110,9 @@ const Register = () => {
                             />
                         </div>
                     </div>
+                    <h1 className="text-red-500">
+                        {error}
+                    </h1>
                     <div className='space-y-2'>
                         <div>
                             <button

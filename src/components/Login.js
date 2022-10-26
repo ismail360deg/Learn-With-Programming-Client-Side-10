@@ -1,10 +1,16 @@
-import { useContext } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { GoogleAuthProvider } from "firebase/auth"
+import { useContext, useState } from "react"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider"
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/courses';
+
 
 
     const handleSubmit = event => {
@@ -18,10 +24,12 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate('/blog')
+                setError('')
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.error(error)
+                setError(error.message)
             })
     }
 
@@ -68,7 +76,9 @@ const Login = () => {
                                 placeholder='*******'
                                 className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
                             />
-                            <h1 className="text-red-500 px-3  ">didnot match</h1>
+                            <h1 className="text-red-500 px-3  ">
+                                {error}
+                            </h1>
                         </div>
                     </div>
 
