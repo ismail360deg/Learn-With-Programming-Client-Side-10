@@ -88,7 +88,7 @@ const Navbar = () => {
 
                     <Link href='#' className='mr-5 hover:text-gray-900'>
                         {user?.photoURL ?
-                            <img className="rounded-full" style={{ height: '30px' }}
+                            <img title={user?.displayName} className="rounded-full" style={{ height: '30px' }}
                                 src={user?.photoURL} alt="" />
                             :
                             <UserCircleIcon className="h-6 w-6 text-blue-500"></UserCircleIcon>
