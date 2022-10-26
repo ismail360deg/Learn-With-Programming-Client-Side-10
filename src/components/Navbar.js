@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom"
-import { logo } from "../assets/logo.jpg"
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 
@@ -20,15 +19,10 @@ const Navbar = () => {
                     to='/'
                     className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'
                 >
-                    {/* <img src={logo} alt="" /> */}
-                    <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        viewBox='0 0 32 32'
-                        fill='currentColor'
-                        className='flex-shrink-0 w-5 h-5 rounded-full text-cyan-600'
-                    >
-                        <path d='M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z'></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                     </svg>
+
 
                     <span className='ml-3 text-xl'>Learn-With-Programming</span>
                 </Link>
