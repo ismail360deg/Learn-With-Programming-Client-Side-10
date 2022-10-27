@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
-import { UserCircleIcon } from '@heroicons/react/24/solid'
+import { SunIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { useState } from "react";
+
 
 const Navbar = () => {
+    const [toggle, setToggle] = useState(false);
     const { user, logOut } = useContext(AuthContext);
+    console.log(toggle)
 
     const handleLogOut = () => {
         logOut()
@@ -12,19 +16,20 @@ const Navbar = () => {
             .catch(error => console.error(error))
     }
 
+
     return (
-        <header className='text-gray-600 body-font'>
+        <header className={`text-gray-600 body-font ${toggle ? 'bg-gray-800 text-gray-50' : 'bg-white'}`}>
             <div className='container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center'>
                 <Link
                     to='/'
                     className='flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0'
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`w-6 h-6 ${toggle ? ' text-gray-50' : 'text-gray-800'}`}>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                     </svg>
 
 
-                    <span className='ml-3 text-xl'>Learn-With-Programming</span>
+                    <span className={`ml-3 text-xl ${toggle ? ' text-gray-50' : 'text-gray-800'}`}>Learn-With-Programming</span>
                 </Link>
                 <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
                     <Link to='/' className='mr-5 hover:text-gray-900'>
@@ -88,15 +93,9 @@ const Navbar = () => {
                         }
                     </Link>
 
-
-
-                    <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer text-gray-800">
-                        <span className="relative">
-                            <input id="Toggle1" type="checkbox" className="hidden peer" />
-                            <div className="w-10 h-6 rounded-full shadow-inner peer-checked:bg-violet-600 bg-gray-600 "></div>
-                            <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-100"></div>
-                        </span>
-                    </label>
+                    <div onClick={() => setToggle(!toggle)}>
+                        {toggle ? <SunIcon className="text-gray-50 w-6 h-6"></SunIcon> : <SunIcon className="text-gray-800 w-6 h-6"></SunIcon>}
+                    </div>
 
                 </nav>
             </div>
