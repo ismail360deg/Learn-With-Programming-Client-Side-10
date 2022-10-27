@@ -27,15 +27,15 @@ const Navbar = () => {
                     <span className='ml-3 text-xl'>Learn-With-Programming</span>
                 </Link>
                 <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
-                    <Link to='/' href='#' className='mr-5 hover:text-gray-900'>
+                    <Link to='/' className='mr-5 hover:text-gray-900'>
                         Home
                     </Link>
 
-                    <Link href='#' className='mr-5 hover:text-gray-900'>
+                    <Link to="/courses" className='mr-5 hover:text-gray-900'>
                         Courses
                     </Link>
 
-                    <Link href='#' className='mr-5 hover:text-gray-900'>
+                    <Link to="/faq" className='mr-5 hover:text-gray-900'>
                         FAQ
                     </Link>
 
@@ -89,39 +89,15 @@ const Navbar = () => {
                         }
                     </Link>
 
-                    {/* <button className='inline-flex items-center bg-gray-300 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0'>
-                        Logout
-                        <svg
-                            fill='none'
-                            stroke='currentColor'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            className='w-4 h-4 ml-1'
-                            viewBox='0 0 24 24'
-                        >
-                            <path d='M5 12h14M12 5l7 7-7 7'></path>
-                        </svg>
-                    </button> */}
-                    {/* 
-                    <Link to='/register' className='mr-5 hover:text-gray-900'>
-                        Register
-                    </Link>
 
-                    <Link to='/login' className='mr-5 hover:text-gray-900'>
-                        Login
-                    </Link> */}
 
-                    {/* <Link to="/profile">
-                            {user?.photoURL ?
-                                <Image
-                                    style={{ height: '30px' }}
-                                    roundedCircle
-                                    src={user?.photoURL}>
-                                </Image>
-                                : <FaUser></FaUser>
-                            }
-                        </Link> */}
+                    <label for="Toggle1" className="inline-flex items-center space-x-4 cursor-pointer text-gray-800">
+                        <span className="relative">
+                            <input id="Toggle1" type="checkbox" className="hidden peer" />
+                            <div className="w-10 h-6 rounded-full shadow-inner peer-checked:bg-violet-600 bg-gray-600 "></div>
+                            <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-100"></div>
+                        </span>
+                    </label>
 
                 </nav>
             </div>
