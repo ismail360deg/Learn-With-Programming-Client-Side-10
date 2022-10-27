@@ -6,7 +6,7 @@ import ErrorPage from "../components/ErrorPage";
 import Faq from "../components/Faq";
 import Home from "../components/Home";
 import Login from "../components/Login";
-import Premium from "../components/Premium";
+import Checkout from "../components/Checkout";
 import Profile from "../components/Profile";
 import Register from "../components/Register";
 import Main from "../layout/Main";
@@ -29,14 +29,14 @@ const router = createBrowserRouter([
             {
                 path: "/courses",
                 loader: async () =>
-                    fetch("https://learn-with-programming-server.vercel.app"),
+                    fetch("https://learn-with-programming-server.vercel.app/categories"),
                 element: <Courses></Courses>,
             },
             {
                 path: "/courses/:id",
                 loader: async ({ params }) =>
                     fetch(
-                        `https://learn-with-programming-server.vercel.app/${params.id}`,
+                        `https://learn-with-programming-server.vercel.app/categories/${params.id}`,
                     ),
                 element: <CoursesDetails></CoursesDetails>,
             },
@@ -61,8 +61,8 @@ const router = createBrowserRouter([
                 element: <Profile></Profile>
             },
             {
-                path: '/premium',
-                element: <Premium></Premium>
+                path: '/checkout',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             }
         ]
     }

@@ -3,16 +3,12 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import app from '../../firebase/firebase.init'
 
 
-
-
 export const AuthContext = createContext();
 const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
-
-
 
     const providerLogin = (provider) => {
         setLoading(true)
@@ -48,9 +44,6 @@ const AuthProvider = ({ children }) => {
             console.log('inside auth state change', currentUser);
             setUser(currentUser);
 
-            // if (currentUser === null || currentUser.emailVerified) {
-
-            // }
             setLoading(false)
         });
 

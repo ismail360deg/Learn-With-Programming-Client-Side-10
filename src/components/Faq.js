@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Faq = () => {
     return (
         <div>
-            <section className="bg-gray-100 text-gray-800">
+            <section className="bg-gray-500 text-gray-800">
                 <div className="container flex flex-col items-center p-4 mx-auto md:p-8">
                     <h1 className="text-3xl font-bold leading-none text-center sm:text-4xl">Help Center</h1>
                     <div className="relative mt-6 mb-12">
@@ -17,7 +17,7 @@ const Faq = () => {
                         </span>
                         <input type="search" name="Search" placeholder="Search..." className="w-full py-3 pl-12 text-sm rounded-full sm:w-96 focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50" />
                     </div>
-                    <div className="flex flex-col w-full divide-y sm:flex-row sm:divide-y-0 sm:divide-x sm:px-8 lg:px-12 xl:px-32 divide-gray-300">
+                    <div className="text-white flex flex-col w-full divide-y sm:flex-row sm:divide-y-0 sm:divide-x sm:px-8 lg:px-12 xl:px-32 divide-gray-300">
                         <div className="flex flex-col w-full divide-y divide-gray-300">
                             <Link rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Billing</Link>
                             <Link rel="noopener noreferrer" href="#" className="flex items-center justify-center p-4 sm:py-8 lg:py-12">Support</Link>

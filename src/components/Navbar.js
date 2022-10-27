@@ -70,7 +70,6 @@ const Navbar = () => {
                                     <span>{user?.displayName}</span>
 
 
-
                                 </>
                                 :
                                 <>

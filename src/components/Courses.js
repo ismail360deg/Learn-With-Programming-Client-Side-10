@@ -39,7 +39,7 @@ const Courses = () => {
             <aside className="w-9/12 mt-10 lg:mt-0 mx-auto lg:w-1/4 p-6 text-white rounded-lg shadow-lg bg-slate-700">
                 <nav className="space-y-8 text-sm">
                     <div className="space-y-2">
-                        <h2 className="text-4xl font-semibold tracking-widest uppercase dark:text-gray-400">
+                        <h2 className="text-3xl font-semibold tracking-widest uppercase dark:text-gray-400">
                             Total Courses : {courses.length}
                         </h2>
                         <div className="flex flex-col space-y-1 text-2xl">
